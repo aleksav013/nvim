@@ -1,2 +1,2 @@
 # nvim
-my neovim dotfiles
+My neovim dotfiles
