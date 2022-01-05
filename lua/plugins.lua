@@ -1,14 +1,14 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    packer_bootstrap = fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
 end
 
 vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
+    augroup packer_user_config
+        autocmd!
+        autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    augroup end
 ]])
 
 local status, packer = pcall(require, "packer")
@@ -17,28 +17,29 @@ if not status then
 end
 
 packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
+    display = {
+        open_fn = function()
+            return require("packer.util").float { border = "rounded" }
+        end,
+    },
 }
 
 return packer.startup(function(use)
 -- Packer
-    use 'wbthomason/packer.nvim'
+    use "wbthomason/packer.nvim"
 
 -- cmp
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
+    use "hrsh7th/nvim-cmp"
+    use "saadparwaiz1/cmp_luasnip"
+--    use "hrsh7th/cmp-nvim-lsp"
+--    use "hrsh7th/cmp-buffer"
+--    use "hrsh7th/cmp-path"
+--    use "hrsh7th/cmp-cmdline"
+--    use "hrsh7th/cmp-nvim-lua"
 
 -- snippets
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/cmp-vsnip'
---
+    use "L3MON4D3/LuaSnip"
+
 -- LSP
     use "neovim/nvim-lspconfig"
     use "williamboman/nvim-lsp-installer"
@@ -51,6 +52,6 @@ return packer.startup(function(use)
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
-	require('packer').sync()
+        require("packer").sync()
     end
 end)
