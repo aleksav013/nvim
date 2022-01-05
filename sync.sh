@@ -1,8 +1,9 @@
 #!/bin/bash
 
-NVIM_DIR=~/.config/nvim
+NVIM_DIR=
 
-rm -r $NVIM_DIR
-mkdir -p $NVIM_DIR
-stow --no-folding --ignore="LICENCE|README.md|sync.sh" -t $NVIM_DIR .
+rm -rf ~/.config/nvim
+mkdir -p ~/.config/nvim 
+stow --no-folding --ignore="LICENCE|README.md|sync.sh" -t ~/.config/nvim .
+
 rm -rf ~/.local/share/nvim
