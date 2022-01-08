@@ -114,17 +114,17 @@ cmp.setup {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
-        { name = "nvim-lua" },
+        { name = "nvim_lua" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
     },
     documentation = {
-        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+        -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
     },
         experimental = {
-        ghost_text = false,
+        ghost_text = true,
         native_menu = false,
     },
 }

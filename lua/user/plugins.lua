@@ -47,6 +47,7 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer"
 
 -- Other
+    use "windwp/nvim-autopairs"
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"
     use "akinsho/bufferline.nvim"

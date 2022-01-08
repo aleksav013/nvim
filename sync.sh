@@ -1,6 +1,4 @@
-#!/bin/bash
-
-NVIM_DIR=
+#!/bin/sh
 
 rm -rf ~/.config/nvim
 mkdir -p ~/.config/nvim 
