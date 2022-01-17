@@ -8,7 +8,7 @@ vim.notify(vim.fn.expand('%:p'));
 local extraArgs_opt = {};
 
 if string.match(vim.fn.expand('%:p'),"/home/aleksa/mygit/mykernel/") then
-    extraArgs_opt = { "--sysroot=/home/aleksa/mygit/mykernel/sysroot", "--gcc-toolchain=/usr/bin/i686-elf-gcc", "-ffreestanding", "-nobuiltininc"};
+    extraArgs_opt = { "--sysroot=/opt/aleksa", "--gcc-toolchain=/opt/aleksa/usr/bin/i686-aleksa-gcc", };
 else
 end
 
