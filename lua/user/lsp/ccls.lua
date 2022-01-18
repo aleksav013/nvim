@@ -14,7 +14,10 @@ end
 
 
 lspconfig.ccls.setup {
-    on_attach = on_attach,
+
+    on_attach = require("user.lsp.handlers").on_attach,
+    capabilities = require("user.lsp.handlers").capabilities,
+
     flags = {
         debounce_text_changes = 150,
     };
