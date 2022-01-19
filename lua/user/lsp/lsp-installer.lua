@@ -1,3 +1,19 @@
+local servers = { "bashls", "texlab", "sumneko_lua" }
+
+local status, lsp_installer_servers = pcall(require, "nvim-lsp-installer.servers")
+if not status then
+    return
+end
+
+for _, server in pairs(servers) do
+    local _, requested_server = lsp_installer_servers.get_server(server)
+    if not requested_server:is_installed() then
+        -- Queue the server to be installed
+        requested_server:install()
+    end
+end
+
+
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
     return
@@ -24,7 +40,7 @@ lsp_installer.on_server_ready(function(server)
     if server.name == "sumneko_lua" then
         local sumneko_opts = require("user.lsp.settings.sumneko_lua")
         opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	end
+    end
 
 
     -- This setup() function is exactly the same as lspconfig's setup function.
