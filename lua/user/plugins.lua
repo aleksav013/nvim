@@ -46,6 +46,9 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig"
     use "williamboman/nvim-lsp-installer"
 
+-- Colorsheme
+    use "morhetz/gruvbox"
+
 -- Other
     use "windwp/nvim-autopairs"
     use "kyazdani42/nvim-web-devicons"
