@@ -7,13 +7,29 @@ end
 vim.notify(vim.fn.expand('%:p'));
 local extraArgs_opt = {};
 
-if string.match(vim.fn.expand('%:p'),"/home/aleksa/mygit/mykernel/") then
+if string.match(vim.fn.expand('%:p'),"/home/aleksa/mygit/oldrepos/mykernel/") then
     extraArgs_opt = { "--sysroot=/opt/aleksa", "--gcc-toolchain=/opt/aleksa/usr/bin/i686-aleksa-gcc", };
+--[[
     vim.opt["shiftwidth"]=4;
     vim.opt["tabstop"]=4;
     vim.opt["expandtab"]=true;
-    vim.notify("aleksav013/mykernel");
-else
+]]
+    vim.notify("mykernel");
+end
+
+if string.match(vim.fn.expand('%:p'),"/media/files/git/") then
+    extraArgs_opt = { "--sysroot=/media/files/git/staging", };
+    vim.notify("linux");
+end
+
+if string.match(vim.fn.expand('%:p'),"/home/aleksa/files/arduino_avr") then
+    extraArgs_opt = { "--sysroot=/usr/avr", };
+    vim.notify("arduino-avr");
+end
+
+if string.match(vim.fn.expand('%:p'),"/home/aleksa/mygit/mykernel64") then
+    extraArgs_opt = { "--sysroot=/home/aleksa/mygit/mykernel64/kernel", };
+    vim.notify("mykernel64");
 end
 
 
