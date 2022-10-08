@@ -1,4 +1,4 @@
-local servers = { "bashls", "texlab", "sumneko_lua" }
+local servers = { "bashls", "pylsp", "texlab", "sumneko_lua" }
 
 local status, lsp_installer_servers = pcall(require, "nvim-lsp-installer.servers")
 if not status then
@@ -42,6 +42,10 @@ lsp_installer.on_server_ready(function(server)
         opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
     end
 
+    if server.name == "pylsp" then
+        local pylsp_opts = require("user.lsp.settings.pylsp")
+        opts = vim.tbl_deep_extend("force", pylsp_opts, opts)
+    end
 
     -- This setup() function is exactly the same as lspconfig's setup function.
     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
