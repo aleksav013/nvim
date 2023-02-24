@@ -30,7 +30,7 @@ keymap("n", "<Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 
 -- NvimTree
-keymap("n", "e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "t", ":NvimTreeToggle<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)

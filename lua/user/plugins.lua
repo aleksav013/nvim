@@ -39,12 +39,14 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-nvim-lua"
 
--- snippets
-    use "L3MON4D3/LuaSnip"
 
--- LSP
+-- LSP, linters & formatters
     use "neovim/nvim-lspconfig"
     use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
+    use "nvim-lua/plenary.nvim"
+    use "jose-elias-alvarez/null-ls.nvim"
+    use "jay-babu/mason-null-ls.nvim"
 
 -- Colorsheme
     use "morhetz/gruvbox"
