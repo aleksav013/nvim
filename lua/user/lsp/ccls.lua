@@ -16,11 +16,6 @@ end
 
 if string.match(vim.fn.expand('%:p'),"/home/aleksa/mygit/oldrepos/mykernel/") then
     extraArgs_opt = { "--sysroot=/opt/aleksa", "--gcc-toolchain=/opt/aleksa/usr/bin/i686-aleksa-gcc", };
---[[
-    vim.opt["shiftwidth"]=4;
-    vim.opt["tabstop"]=4;
-    vim.opt["expandtab"]=true;
-]]
     vim.notify("mykernel");
 end
 
@@ -49,7 +44,6 @@ lspconfig.ccls.setup {
         debounce_text_changes = 150,
     };
     init_options = {
-    compilationDatabaseDirectory = "build";
     cache = {
        directory = "/tmp/ccls-cache";
     };
