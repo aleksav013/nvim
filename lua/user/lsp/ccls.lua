@@ -1,5 +1,6 @@
-local status, lspconfig = pcall(require, "lspconfig")
-if not status then
+local lspconfig_status, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status then
+	print("lsp/ccls.lua: loading lspconfig failed")
 	return
 end
 

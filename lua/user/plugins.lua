@@ -14,8 +14,9 @@ vim.cmd([[
     augroup end
 ]])
 
-local status, packer = pcall(require, "packer")
-if not status then
+local packer_status, packer = pcall(require, "packer")
+if not packer_status then
+	print("plugins.lua: loading packer failed")
 	return
 end
 
@@ -39,6 +40,7 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-path"
 	use "hrsh7th/cmp-cmdline"
 	use "hrsh7th/cmp-nvim-lua"
+	use "L3MON4D3/LuaSnip"
 
 
 	-- LSP, linters & formatters

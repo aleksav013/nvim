@@ -1,5 +1,6 @@
-local status_ok, bufferline = pcall(require, "bufferline")
-if not status_ok then
+local bufferline_status, bufferline = pcall(require, "bufferline")
+if not bufferline_status then
+	print("bufferline.lua: loading bufferline failed")
 	return
 end
 

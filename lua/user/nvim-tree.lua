@@ -1,15 +1,15 @@
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
-
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
+local nvim_tree_status, nvim_tree = pcall(require, "nvim-tree")
+if not nvim_tree_status then
+	print("nvim-tree.lua: loading nvim-tree failed")
 	return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
+local nvim_tree_config_status, nvim_tree_config = pcall(require, "nvim-tree.config")
+if not nvim_tree_config_status then
+	print("nvim-tree.lua: loading nvim-tree.config failed")
 	return
 end
+
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 

@@ -1,10 +1,12 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
+local cmp_status, cmp = pcall(require, "cmp")
+if not cmp_status then
+	print("cmp.lua: loading cmp failed")
 	return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
+local luasnip_status, luasnip = pcall(require, "luasnip")
+if not luasnip_status then
+	print("cmp.lua: loading luasnip failed")
 	return
 end
 
@@ -42,7 +44,6 @@ local kind_icons = {
 	Operator = "",
 	TypeParameter = "",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
 	snippet = {
