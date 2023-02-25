@@ -10,6 +10,8 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+keymap("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", opts)
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
