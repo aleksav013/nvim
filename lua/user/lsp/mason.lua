@@ -56,7 +56,7 @@ mason_lspconfig.setup({
 	automatic_installation = true,
 })
 
-table.insert(servers, "ccls")
+--table.insert(servers, "ccls")
 mason_lspconfig.setup_handlers {
 	function(server_name)
 		lspconfig[server_name].setup {
@@ -70,12 +70,12 @@ mason_lspconfig.setup_handlers {
 mason_null_ls.setup({
 	automatic_setup = true,
 	ensure_installed = {},
+	handlers = {
+		function(source_name, methods)
+			require("mason-null-ls.automatic_setup")(source_name, methods)
+		end,
+	},
 })
-mason_null_ls.setup_handlers {
-	function(source_name, methods)
-		require("mason-null-ls.automatic_setup")(source_name, methods)
-	end,
-}
 
 -- null_ls
 null_ls.setup()
