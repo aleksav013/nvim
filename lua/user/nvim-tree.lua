@@ -4,15 +4,6 @@ if not nvim_tree_status then
 	return
 end
 
-local nvim_tree_config_status, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not nvim_tree_config_status then
-	print("nvim-tree.lua: loading nvim-tree.config failed")
-	return
-end
-
-
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
 nvim_tree.setup {
 	disable_netrw = true,
 	hijack_netrw = true,
@@ -48,11 +39,7 @@ nvim_tree.setup {
 	},
 	view = {
 		width = 30,
-		hide_root_folder = false,
 		side = "left",
-		mappings = {
-			custom_only = false,
-		},
 		number = false,
 		relativenumber = false,
 	},
