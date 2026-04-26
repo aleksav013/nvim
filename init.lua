@@ -51,6 +51,7 @@ vim.cmd "hi Normal guibg=NONE ctermbg=NONE"
 
 vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" }, { confirm = false })
 require("nvim-treesitter.install").update("all")
+vim.pack.add({ "https://github.com/saghen/blink.lib" }, { confirm = false })
 vim.pack.add({ "https://github.com/saghen/blink.cmp" }, { confirm = false })
 
 require("blink.cmp").setup({
@@ -68,7 +69,7 @@ require("blink.cmp").setup({
     ['<C-e>'] = { 'cancel', 'fallback' },
     ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
 
-    ['<Tab>'] = { 'snippet_forward', 'fallback' },
+    ['<Tab>'] = { 'select_and_accept', 'snippet_forward', 'fallback' },
     ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
 
     ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
@@ -102,7 +103,7 @@ vim.pack.add({
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
-  ensure_installed = vim.tbl_keys(lsp_servers),
+  ensure_installed = { "lua_ls", "rust_analyzer", "bashls" },
 })
 
 for server, config in pairs(lsp_servers) do
@@ -110,7 +111,7 @@ for server, config in pairs(lsp_servers) do
     settings = config,
 
     on_attach = function(_, bufnr)
-      vim.keymap.set("n", "grd", vim.lsp.buf.definition,
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition,
         { buffer = bufnr, desc = "vim.lsp.buf.definition()", })
 
       vim.keymap.set("n", "grf", vim.lsp.buf.format,
@@ -118,6 +119,8 @@ for server, config in pairs(lsp_servers) do
     end,
   })
 end
+
+vim.lsp.enable(vim.tbl_keys(lsp_servers))
 
 
 vim.pack.add({
